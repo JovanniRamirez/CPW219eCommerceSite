@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿// Ignore Spelling: CPW
+
+using System.ComponentModel.DataAnnotations;
 
 namespace CPW219eCommerceSite.Models
 {
@@ -17,7 +19,7 @@ namespace CPW219eCommerceSite.Models
         /// The official title of the video game
         /// </summary>
         [Required]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         /// <summary>
         /// The sales price of the video game
