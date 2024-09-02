@@ -21,4 +21,5 @@ namespace CPW219eCommerceSite.Controllers
 
             return View(game);
         }
+    }
 }
