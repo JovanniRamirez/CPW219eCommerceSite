@@ -1,5 +1,3 @@
-﻿// Ignore Spelling: CPW
-
 using CPW219eCommerceSite.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +9,6 @@ namespace CPW219eCommerceSite.Data
         {
         }
 
-
         public DbSet<Game> Games { get; set; }
-
-
     }
 }
