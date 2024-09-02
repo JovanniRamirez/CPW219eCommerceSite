@@ -1,4 +1,4 @@
-﻿using CPW219eCommerceSite.Models;
+using CPW219eCommerceSite.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CPW219eCommerceSite.Data
@@ -7,7 +7,6 @@ namespace CPW219eCommerceSite.Data
     {
         public VideoGameContext(DbContextOptions<VideoGameContext> options) : base(options)
         {
-
         }
 
         public DbSet<Game> Games { get; set; }
