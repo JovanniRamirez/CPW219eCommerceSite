@@ -1,4 +1,6 @@
-﻿using CPW219eCommerceSite.Models;
+﻿// Ignore Spelling: CPW
+
+using CPW219eCommerceSite.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CPW219eCommerceSite.Data
