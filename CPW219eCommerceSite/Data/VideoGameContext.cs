@@ -1,4 +1,6 @@
-﻿namespace CPW219eCommerceSite.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace CPW219eCommerceSite.Data
 {
     public class VideoGameContext : DbContext
     {
