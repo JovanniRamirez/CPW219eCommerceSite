@@ -1,9 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CPW219eCommerceSite.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CPW219eCommerceSite.Controllers
 {
     public class GamesController : Controller
     {
+        private readonly VideoGameContext _context;
+        public GamesController(VideoGameContext context)
+        {
+            _context = context;
+        }
         [HttpGet]
         public IActionResult Create()
         {
@@ -14,8 +20,9 @@ namespace CPW219eCommerceSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Add to database
-                // Show success message on page
+                _context.Games.Add(game); //Prepares insert
+                _context.SaveChanges(); // Executes pending insert
+                ViewData["Message"] = $"{game.Title} was added successfully!"; // Show success message on page
                 return View();
             }
 
