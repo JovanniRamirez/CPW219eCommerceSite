@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿// Ignore Spelling: CPW
+
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
