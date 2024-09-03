@@ -1,20 +1,40 @@
-﻿using CPW219eCommerceSite.Data;
+﻿// Ignore Spelling: CPW
+
+using CPW219eCommerceSite.Data;
+using CPW219eCommerceSite.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CPW219eCommerceSite.Controllers
 {
     public class GamesController : Controller
     {
         private readonly VideoGameContext _context;
+     
         public GamesController(VideoGameContext context)
         {
             _context = context;
         }
+
+        public async Task <IActionResult> Index()
+        {
+            // Get all games from the database
+            //List<Game> games = _context.Games.ToList(); //method syntax
+            List<Game> games = await (from game in _context.Games //query syntax
+                                select game).ToListAsync();
+
+            // Show them on the page
+
+
+            return View(_context.Games);
+        }
+
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+        
         [HttpPost]
         public async Task<IActionResult> Create(Models.Game game)
         {
