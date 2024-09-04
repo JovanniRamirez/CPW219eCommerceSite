@@ -56,7 +56,7 @@ namespace CPW219eCommerceSite.Controllers
         public async Task<IActionResult> Edit(int id)
         
         {
-            Game gameToEdit = await _context.Games.FindAsync(id);
+            Game? gameToEdit = await _context.Games.FindAsync(id);
 
             if (gameToEdit == null)
             {
@@ -79,6 +79,33 @@ namespace CPW219eCommerceSite.Controllers
             }
 
             return View(gameModel);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            Game? gameToDelete = await _context.Games.FindAsync(id);
+
+            if (gameToDelete == null)
+            {
+                return NotFound();
+            }
+            return View(gameToDelete);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id) 
+        {
+            Game? gameToDelete = await _context.Games.FindAsync(id);
+            if (gameToDelete != null)
+            {
+                _context.Games.Remove(gameToDelete);
+                await _context.SaveChangesAsync();
+                TempData["Message"] = gameToDelete.Title + " was deleted successfully!";
+                return RedirectToAction("Index");
+            }
+
+            TempData["Message"] = "This game was already deleted";
+            return RedirectToAction("Index");
         }
     }
 
