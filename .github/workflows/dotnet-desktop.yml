@@ -57,9 +57,9 @@ jobs:
 
     env:
       Solution_Name: CPW219eCommerceSite.sln  # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: C:\Users\PeachyPig\source\repos\CPW219eCommerceSite\CPW219eCommerceSite\CPW219eCommerceSite.csproj.user # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Test_Project_Path: C:\Users\PeachyPig\source\repos\CPW219eCommerceSite\CPW219eCommerceSite # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Wap_Project_Directory: CPW219eCommerceSite/CPW219eCommerceSite.csproj    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      Wap_Project_Path: CPW219eCommerceSite/CPW219eCommerceSite.csproj                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
     - name: Checkout
