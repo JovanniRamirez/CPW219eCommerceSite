@@ -61,6 +61,7 @@ namespace CPW219eCommerceSite.Controllers
                 // If exist,, send to a home page
                 if (m != null)
                 {
+                    HttpContext.Session.SetString("Email", loginModel.Email);
                     return RedirectToAction("Index", "Home");
                 }               
                 
