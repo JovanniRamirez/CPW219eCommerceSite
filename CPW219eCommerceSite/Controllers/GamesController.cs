@@ -16,17 +16,23 @@ namespace CPW219eCommerceSite.Controllers
             _context = context;
         }
 
-        public async Task <IActionResult> Index()
+        public async Task <IActionResult> Index(int? id)
         {
-            // Get all games from the database
-            //List<Game> games = _context.Games.ToList(); //method syntax
+            const int NumGamesToDisplayPerPage = 3;
+            const int PageOffset = 1; //Need a page offset to use current page and figure out how many games to skip
+
+            int currentPage = id ?? 1; //set current page to Id  otherwise set to 1
+            
             List<Game> games = await (from game in _context.Games //query syntax
-                                select game).ToListAsync();
+                                select game)
+                                .Skip(NumGamesToDisplayPerPage * (currentPage - PageOffset) )
+                                .Take(NumGamesToDisplayPerPage)
+                                .ToListAsync();
 
             // Show them on the page
 
 
-            return View(_context.Games);
+            return View(games);
         }
 
         [HttpGet]
