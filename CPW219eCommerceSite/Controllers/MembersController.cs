@@ -40,5 +40,34 @@ namespace CPW219eCommerceSite.Controllers
             }
             return View(regModel);
         }
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(LoginViewModel loginModel)
+        {
+            if (ModelState.IsValid)
+            {
+                // Check if the member exists in the database
+                // CHecking DB for credentials
+                Member? m = (from member in _context.Members
+                                where member.Email == loginModel.Email
+                                && member.Password == loginModel.Password
+                                select member).SingleOrDefault();
+
+                // If exist,, send to a home page
+                if (m != null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }               
+                
+                ModelState.AddModelError(string.Empty, "Invalid Login");
+            }
+            // If no record matches, display an Error
+            return View(loginModel);
+        }
     }
 }
